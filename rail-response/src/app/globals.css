@@ -1,5 +1,12 @@
 @tailwind utilities;
 
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Estilos da página inicial */
 #home-container {
   display: flex;
@@ -7,7 +14,7 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #183A61;
+  width: 100vw; /* Garante que toda a largura seja preenchida */
   color: white;
   text-align: center;
 }
@@ -24,7 +31,8 @@
 .logo-image {
   width: 100%;
   height: auto;
-  border-radius: 50%;;
+  border-radius: 50%;
+  display: block;
 }
 
 #home-title {
@@ -47,4 +55,250 @@
 
 #home-button:hover {
   background-color: #d85a1a;
+}
+/* Estilos da tela de login */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #183A61; /* Garante que todo o fundo seja da mesma cor */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw; /* Garante que não haja faixas laterais de outra cor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Container da tela de login */
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Caixa principal do login */
+.login-box {
+  background-color: #F4F4F4;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 450px;
+  text-align: center;
+}
+
+/* Cabeçalho do login */
+.login-header img {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.login-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.login-header p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Campos de entrada */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Link "Esqueceu a senha" */
+.forgot-password {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Botões */
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.create-account, .next-button {
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 48%;
+}
+
+.create-account {
+  background-color: #F4A261;
+  color: white;
+}
+
+.create-account:hover {
+  background-color: #E07A5F;
+}
+
+.next-button {
+  background-color: #E76F51;
+  color: white;
+}
+
+.next-button:hover {
+  background-color: #D62828;
+}
+
+/* ======== Página de Cadastro ======== */
+.cadastro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cadastro-box {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+.cadastro-header img {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.cadastro-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1B3A57;
+  margin-bottom: 10px;
+}
+
+/* ======== Campos de Entrada ======== */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #F37021;
+  box-shadow: 0 0 5px rgba(243, 112, 33, 0.5);
+}
+
+/* ======== Botão de Cadastro ======== */
+.submit-button {
+  width: 100%;
+  background-color: #F37021;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #d85a1a;
+}
+
+.header-container {
+  width: 100%;
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1B3A57; /* Mantém o fundo */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fixa o header no topo */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Garante que o header fique acima do conteúdo */
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.header-link:hover {
+  color: #f0a500;
+}
+
+.header-menu-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+  
+  .header-menu-btn {
+    display: block;
+    font-size: 1.5rem;
+    color: white;
+  }
 }

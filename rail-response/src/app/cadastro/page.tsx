@@ -2,32 +2,61 @@
 
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import CadastroForm from "./CadastroForm";
 import Image from "next/image";
 
 export default function CadastroPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="cadastro-container">
       {/* Cabeçalho */}
       <Header />
 
       {/* Conteúdo da Página */}
-      <main className="flex flex-grow justify-center items-center px-6">
-        <div className="bg-white p-10 rounded-2xl shadow-lg w-96 max-w-lg text-center relative">
-          {/* Logo */}
+      <main className="cadastro-main">
+        {/* Logo */}
+        <div className="cadastro-logo">
           <Image
             src="/img/logo.png"
             alt="Ícone de trem"
-            width={100}
-            height={100}
-            className="absolute -top-12 left-1/2 transform -translate-x-1/2 rounded-full shadow-lg"
+            width={120}
+            height={120}
+            className="logo-img"
           />
+        </div>
 
+        <div className="cadastro-box">
           {/* Título */}
-          <h1 className="text-2xl font-bold text-blue-900 mt-14">Cadastro</h1>
+          <h1 className="cadastro-title">Cadastro</h1>
 
           {/* Formulário de Cadastro */}
-          <CadastroForm />
+          <form className="cadastro-form">
+            <div className="cadastro-field">
+              <label>Nome</label>
+              <input type="text" className="cadastro-input" placeholder="Digite seu nome" />
+            </div>
+
+            <div className="cadastro-field">
+              <label>Sobrenome</label>
+              <input type="text" className="cadastro-input" placeholder="Digite seu sobrenome" />
+            </div>
+
+            <div className="cadastro-field">
+              <label>Email</label>
+              <input type="email" className="cadastro-input" placeholder="Digite seu email" />
+            </div>
+
+            <div className="cadastro-field">
+              <label>CPF</label>
+              <input type="text" className="cadastro-input" placeholder="Digite seu CPF" />
+            </div>
+
+            <div className="cadastro-field">
+              <label>Telefone</label>
+              <input type="text" className="cadastro-input" placeholder="Digite seu telefone" />
+            </div>
+
+            {/* Botão de Envio */}
+            <button type="submit" className="cadastro-button">Cadastrar</button>
+          </form>
         </div>
       </main>
 

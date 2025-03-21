@@ -1,38 +1,57 @@
 "use client";
+ 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import CadastroForm from "./CadastroForm";
-import Image from "next/image";
-
-export default function CadastroPage() {
+ 
+const CadastroForm = () => {
+  const [formData, setFormData] = useState({
+    nome: "",
+    sobrenome: "",
+    email: "",
+    cpf: "",
+    telefone: "",
+  });
+ 
+  const router = useRouter();
+ 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+ 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Dados cadastrados:", formData);
+    router.push("/principal"); // Redireciona para a página principal após cadastro
+  };
+ 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
-      {/* Cabeçalho */}
-      <Header />
-
-      {/* Conteúdo da Página */}
-      <main className="flex flex-grow justify-center items-center px-6">
-        <div className="bg-white p-10 rounded-2xl shadow-lg w-96 max-w-lg text-center relative">
-          {/* Logo */}
-          <Image
-            src="/img/logo.png"
-            alt="Ícone de trem"
-            width={100}
-            height={100}
-            className="absolute -top-12 left-1/2 transform -translate-x-1/2 rounded-full shadow-lg"
+    <form onSubmit={handleSubmit} className="flex flex-col mt-6 space-y-4">
+      {["nome", "sobrenome", "email", "cpf", "telefone"].map((field) => (
+        <div key={field} className="text-left">
+          <label htmlFor={field} className="block text-sm font-medium text-blue-900 capitalize">
+            {field}:
+          </label>
+          <input
+            type="text"
+            id={field}
+            name={field}
+            value={formData[field as keyof typeof formData]}
+            onChange={handleChange}
+            required
+            className="w-full p-2 border border-gray-300 rounded-md"
           />
-
-          {/* Título */}
-          <h1 className="text-2xl font-bold text-blue-900 mt-14">Cadastro</h1>
-
-          {/* Formulário de Cadastro */}
-          <CadastroForm />
         </div>
-      </main>
-
-      {/* Rodapé */}
-      <Footer />
-    </div>
+      ))}
+ 
+      {/* Botão de Envio */}
+      <button type="submit" className="bg-orange-400 text-white py-2 px-4 rounded-md hover:bg-blue-900">
+        Submit
+      </button>
+    </form>
   );
-}
+};
+ 
+export default CadastroForm;
+ 
+ 

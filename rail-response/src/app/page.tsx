@@ -21,7 +21,7 @@ export default function HomePage() {
       <h1 id="home-title">RailResponse</h1>
 
       {/* Botão */}
-      <Link href="/principal">
+      <Link href="/login">
         <button id="home-button">Entrar</button>
       </Link>
     </div>
